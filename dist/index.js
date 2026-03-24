@@ -34,14 +34,28 @@ console.log(addNumbers(10, 5));
 // Task 5: Enum
 // Enums are used to define a set of named constants.
 // They help us avoid using random string values and make code cleaner and safer.
-var Role;
-(function (Role) {
-    Role["Admin"] = "ADMIN";
-    Role["User"] = "USER";
-    Role["Guest"] = "GUEST";
-})(Role || (Role = {}));
-let myRole = Role.Admin;
-console.log(myRole);
+// it is used in authentication and authorisation in login system
+//
+var nextCollege;
+(function (nextCollege) {
+    nextCollege["Admin"] = "ADMIN";
+    nextCollege["User"] = "USER";
+    nextCollege["Guest"] = "GUEST";
+})(nextCollege || (nextCollege = {}));
+function checkAccess(role) {
+    if (role === nextCollege.Admin) {
+        return "Full access granted";
+    }
+    else if (role === nextCollege.User) {
+        return "Limited access granted";
+    }
+    else {
+        return "Guest access only";
+    }
+}
+console.log(checkAccess(nextCollege.Admin));
+console.log(checkAccess(nextCollege.User));
+console.log(checkAccess(nextCollege.Guest));
 // Tuple example
 let person = ["Frank", 25];
 // Union type example
