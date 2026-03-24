@@ -77,10 +77,26 @@ console.log(checkAccess(nextCollege.Guest));
 
 
 // Tuple example
-let person: [string, number] = ["Frank", 25];
+const  person: [string, number] = ["Frank", 25];
+function displayPerson(person: [string, number]): string {
+  const [name, age] = person;
+  return `Name: ${name}, Age: ${age}`;
+}
+
+console.log(displayPerson(person));
 
 // Union type example
 let id: string | number = 101;
 id = "A102";
 
-console.log(person, id);
+function printId(id: string | number): string {
+  if (typeof id === "string") {
+    return `ID is a string: ${id.toUpperCase()}`;
+  } else {
+    return `ID is a number: ${id}`;
+  }
+}
+
+console.log(printId(101));
+console.log(printId("A102"));
+
