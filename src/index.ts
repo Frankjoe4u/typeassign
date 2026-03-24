@@ -53,15 +53,25 @@ console.log(addNumbers(10, 5));
 // They help us avoid using random string values and make code cleaner and safer.
 // it is used in authentication and authorisation in login system
 //
-enum Role {
+enum nextCollege {
   Admin = "ADMIN",
   User = "USER",
-  Guest = "GUEST",
+  Guest = "GUEST"
 }
 
-let myRole: Role = Role.Admin;
+function checkAccess(role: nextCollege): string {
+  if (role === nextCollege.Admin) {
+    return "Full access granted";
+  } else if (role === nextCollege.User) {
+    return "Limited access granted";
+  } else {
+    return "Guest access only";
+  }
+}
 
-console.log(myRole);
+console.log(checkAccess(nextCollege.Admin));
+console.log(checkAccess(nextCollege.User));  
+console.log(checkAccess(nextCollege.Guest)); 
 
 
 
